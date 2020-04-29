@@ -401,7 +401,7 @@
 			Case 1
 				$oThis.parent.Address = $oThis.arguments.values[0]
 				__DynamicArguments($oThis)			
-				$oThis.parent.Type = 'dword'
+				;$oThis.parent.Type = 'dword'
 				$temp = _MemoryRead($oThis.parent.Address, $oThis.parent.MemID, $oThis.parent.Type)
 				;MsgBox("", "", $temp)
 				If Not @error Then
@@ -439,10 +439,10 @@
 	Func __MemoryWrite($oThis)
 		Switch $oThis.arguments.length		
 			Case 1
-				$oThis.parent.Address = $oThis.parent.RtRead
+				;$oThis.parent.Address = $oThis.parent.RtRead
 				$oThis.parent.valW	 = $oThis.arguments.values[0]
 				__DynamicArguments($oThis)			
-				$oThis.parent.Type = 'dword'
+				;$oThis.parent.Type = 'dword'
 				$temp = _MemoryWrite($oThis.parent.Address, $oThis.parent.MemID,$oThis.parent.valW, $oThis.parent.Type)
 				If Not @error Then
 					$oThis.parent.RtWrite = $temp
@@ -456,7 +456,7 @@
 			Case 2
 				$oThis.parent.Address = $oThis.arguments.values[0]
 				$oThis.parent.valW	 = $oThis.arguments.values[1]
-				$oThis.parent.Type = 'dword'
+				;$oThis.parent.Type = 'dword'
 				__DynamicArguments($oThis)			
 				
 				$temp = _MemoryWrite($oThis.parent.Address, $oThis.parent.MemID,$oThis.parent.valW, $oThis.parent.Type)
