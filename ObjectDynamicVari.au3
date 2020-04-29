@@ -344,6 +344,7 @@
 			$MemoryObject =  __createObject()
 			$MemoryObject.pid = $pid
 			$MemoryObject.MemID = 0
+			$MemoryObject.Address = 0
 			$MemoryObject.InheritHandle = 1
 			$MemoryObject.DesiredAcces = '0x1F0FFF'
 			$MemoryObject.RtRead = ''
@@ -385,8 +386,8 @@
 		
 		Switch $oThis.arguments.length		
 			Case 0
-				$oThis.parent.Address = $oThis.parent.RtRead	
-				$oThis.parent.Type = 'dword'
+				;$oThis.parent.Address = $oThis.parent.RtRead	
+				;$oThis.parent.Type = 'dword'
 				$temp = _MemoryRead($oThis.parent.Address, $oThis.parent.MemID, $oThis.parent.Type)
 				If Not @error Then
 					$oThis.parent.RtRead = $temp
