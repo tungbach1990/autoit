@@ -1,5 +1,5 @@
 # autoit
-Mình có tổng hợp các cái mình hay dùng lại thành 1 file thư viện chạy theo dạng OOP
+Mình có tổng hợp các thư viện mình hay dùng lại thành 1 file thư viện chạy theo dạng OOP
 Sử dụng AutoIT theo dạng OOP để thao tác dễ dàng hơn cho người mới, bao gồm các chức năng:
 
 1.[Log vào file và console](#log)
