@@ -808,7 +808,7 @@
 				$oThis.parent.x = $temp[1][2] + 8;+ $wincord[0] - @DesktopWidth + 8;$temp[1][2]
 				$oThis.parent.y = $temp[1][3] + 8;- $wincord[1] + @DesktopHeight + 8;$temp[1][3]
 				
-			Else
+			Else			
 				$oThis.parent.Status = False
 				;Return SetError(1, 1, 0)
 			EndIf
@@ -3214,9 +3214,15 @@
 			$str = StringReplace($sHTML, '"', "")
 			Logging("[OCR][Info][JSON] " & $sHTML)
 			$res = StringRegExp($str, '(?:ParsedText):([^\{,}]+)', 3)
-			;_ArrayDisplay($res)
-			If StringLen($res[0]) > 0 Then Return $res[0]
-			SetError(3, 1, 0)
+			$ErrorMessage= StringRegExp($str, '(?:ErrorMessage):([^\{,}]+)', 3)
+			;_ArrayDisplay($ErrorMessage)
+			If IsArray($res) and Not IsArray($ErrorMessage) Then 
+				;_ArrayDisplay($res)
+				Return $res[0]
+			Else 
+				Return SetError(3, 1, $ErrorMessage[0])
+			EndIf
+			
 
 		EndIf
 		SetError(1, 1, 0)
