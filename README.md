@@ -128,14 +128,18 @@ MsgBox("",$display.Msg.Title,$display.Msg.Text)
 Làm biếng viết quá, đọc code rồi sử dụng nha mấy bạn, mình mới làm mấy cái căn bản thôi
 
 
-<a name="coproc"></a>
+<a name="ocr"></a>
 7:OCR qua API
 Sử dụng rất đơn giản, mình lấy api của trang https://api.ocr.space/parse/image
 Mọi người vào đăng ký free để lấy apikey rồi thay thế apikey nhé
 ```
 #include "ObjectDynamicVari.au3"
-$file_dir ="test.bmp"
-MsgBox("","",OCR($file_dir)); 
-
+$file_dir =@DesktopDir & "/test.png"
+$result = OCR($file_dir)
+If Not @error Then
+	MsgBox("","SUCCESS",$result)
+Else 
+	MsgBox("","ERROR",$result)
+EndIf
 
 ```
