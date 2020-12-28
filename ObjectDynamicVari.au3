@@ -3187,16 +3187,17 @@
 
 #endregion
 
-Func convertImgToBase64($file_dir)
-	$dat=FileRead(FileOpen($file_dir,16))
-	$objXML=ObjCreate("MSXML2.DOMDocument")
-	$objNode=$objXML.createElement("b64")
-	$objNode.dataType="bin.base64"
-	$objNode.nodeTypedValue=$dat
-	return "data:image/png;base64," & $objNode.Text
-EndFunc
+#Region OCR
+	Func convertImgToBase64($file_dir)
+		$dat=FileRead(FileOpen($file_dir,16))
+		$objXML=ObjCreate("MSXML2.DOMDocument")
+		$objNode=$objXML.createElement("b64")
+		$objNode.dataType="bin.base64"
+		$objNode.nodeTypedValue=$dat
+		return "data:image/png;base64," & $objNode.Text
+	EndFunc
 
-Func OCR($filedir,$link =  "https://api.ocr.space/parse/image", $apikey ='09c854369688957' )
+	Func OCR($filedir,$link =  "https://api.ocr.space/parse/image", $apikey ='09c854369688957' )
 		
 		$sAddress = $link; the address of the target (https or http, makes no difference - handled automatically)
 		$sFileToUpload = $filedir
@@ -3237,3 +3238,4 @@ Func OCR($filedir,$link =  "https://api.ocr.space/parse/image", $apikey ='09c854
 		EndIf
 		SetError(1, 1, 0)
 	EndFunc
+#EndRegion OCR
