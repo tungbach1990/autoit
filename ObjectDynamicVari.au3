@@ -3187,32 +3187,42 @@
 
 #endregion
 
-#Region OCR
-	Func OCR($filedir,$link =  "https://api.ocr.space/parse/image", $apikey ='09c854369688957' )
+Func convertImgToBase64($file_dir)
+	$dat=FileRead(FileOpen($file_dir,16))
+	$objXML=ObjCreate("MSXML2.DOMDocument")
+	$objNode=$objXML.createElement("b64")
+	$objNode.dataType="bin.base64"
+	$objNode.nodeTypedValue=$dat
+	return "data:image/png;base64," & $objNode.Text
+EndFunc
+
+Func OCR($filedir,$link =  "https://api.ocr.space/parse/image", $apikey ='09c854369688957' )
 		
 		$sAddress = $link; the address of the target (https or http, makes no difference - handled automatically)
 		$sFileToUpload = $filedir
 		If Not $sFileToUpload Then Exit 5 ; check if the file is selected and exit if not
 		$sForm = _
 				'<form action="' & $sAddress & '" method="post" enctype="multipart/form-data">' & _
-				' <input type="file" name="fileUploaded"/>' & _
-				' <input type="text" name="apikey" value="'& $apikey &'"/>' & _
+				' <input type="text" name="apikey" value="'& $apikey &'" />' & _
+				' <input type="text" name="base64Image" />' & _
 				'</form>'
+		;Msgbox("", "", $sForm)
 		$hOpenU = _WinHttpOpen()
 		$hConnectU = $sForm ; will pass form as string so this is for coding correctness because $hConnect goes in byref
 		$sHTML = _WinHttpSimpleFormFill($hConnectU, $hOpenU, _
 				Default, _
-				"name:fileUploaded", $sFileToUpload)
+				"name:base64Image", convertImgToBase64($filedir))
 		$iErr = @error
 		_WinHttpCloseHandle($hConnectU)
 		_WinHttpCloseHandle($hOpenU)
 		If $iErr Then 
 			;ConsoleWrite("Error number = " & $iErr & @CRLF)
-			Logging("[OCR][Error][JSON] Error number = " & $iErr)
+			;Logging("[OCR][Error][JSON] Error number = " & $iErr)
 			SetError($iErr, 1, 0)
 		Else
 			$str = StringReplace($sHTML, '"', "")
-			Logging("[OCR][Info][JSON] " & $sHTML)
+			
+			;Logging("[OCR][Info][JSON] " & $sHTML)
 			$res = StringRegExp($str, '(?:ParsedText):([^\{,}]+)', 3)
 			$ErrorMessage= StringRegExp($str, '(?:ErrorMessage):([^\{,}]+)', 3)
 			;_ArrayDisplay($ErrorMessage)
@@ -3227,4 +3237,3 @@
 		EndIf
 		SetError(1, 1, 0)
 	EndFunc
-#EndRegion OCR
