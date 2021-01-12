@@ -30,7 +30,7 @@
 	$File_Log_Path = ''
 	;$Lang_log = _InitObjectVari("lang.properties")	
 	;$Lang_log.Log.Text.Space = " "
-	tut_all(); tắt func này để bỏ đoạn hướng dẫn ban đầu
+	;tut_all(); tắt func này để bỏ đoạn hướng dẫn ban đầu
 	;WhoAmI()
 	Func WhoAmI($info = '')
 		;MsgBox("", "", StringInStr(StringLower($info), 'obj'))
@@ -262,8 +262,8 @@
 				EndIf
 			EndIf			
 		EndIf
-		
-		If $IsLog Then Logging("############### Program is starting ################")
+		 
+		If $IsLog Then Logging("##############             Program is starting with PID " & @AutoItPID & "             ##############")
 	EndFunc
 	
 	Func OnExitAutoITGlobal()
@@ -271,7 +271,7 @@
 		__TicksToTime(Round(TimerDiff($Global_Timer)), $g_iHour, $g_iMins, $g_iSecs)
 		 Local $sTime = $g_sTime ; save current time to be able to test and avoid flicker..
 		$g_sTime = StringFormat("%02i:%02i:%02i", $g_iHour, $g_iMins, $g_iSecs)
-		If $sTime <> $g_sTime Then Logging("@@@@@@@@@@@@@@@@@@@@@@@@@@ Program is Exited After " & $g_sTime & " @@@@@@@@@@@@@@@@@@@@@@@@@@")
+		If $sTime <> $g_sTime Then Logging("@@@@@@@@@@@@@@@@@@@@@@@@@@ PID " & @AutoItPID & " is Exited After " & $g_sTime & " @@@@@@@@@@@@@@@@@@@@@@@@@@")
 	EndFunc
 	
 	
@@ -703,7 +703,7 @@
 #EndRegion Threading
 
 #Region Objectvari
-	Func _InitObjectVari( $filename = "variables.properties" )
+	Func _InitObjectVari( $filename = "variables.properties",$delimeter ="=" )
 		$arrayline = FileReadToArray($filename)
 		If Not @error Then
 			$ObjectDynamicVari = __createObject()
@@ -712,7 +712,7 @@
 				$perline = $arrayline[$i]
 				$perline = StringStripWS($perline, 3)
 				if StringRegExp(StringLeft($perline,1),"[A-Za-z0-9_]" ) = 1 Then 
-					$ObjectDynamicVari = AssignValue($perline, $ObjectDynamicVari)	
+					$ObjectDynamicVari = AssignValue($perline, $ObjectDynamicVari, $delimeter)	
 				EndIf    
 			Next
 			Logging("[Info][ObjectV] Đã load thành công ObjectVariable từ file " & $filename)
@@ -744,7 +744,13 @@
 			$checkobject = StringInStr($vari, ".")
 			If $checkobject <= 0 Then
 				$pos 	= StringInStr($text, $delimeter)
-				$value 	= StringRight($text, StringLen($text) -$pos)
+				$textright = StringRight($text, StringLen($text) -$pos)
+				if StringLeft($textright,2) = "()" Then
+					$value 	= $textright
+				Else
+					$value = Execute(StringRight($textright, StringLen($textright) -2))
+				EndIf
+				
 				$object.__set($vari, $value)
 			Else 		
 				$object.__defineGetter(StringLeft($vari, $checkobject -1), Gui_object)
