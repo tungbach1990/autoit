@@ -703,7 +703,7 @@
 #EndRegion Threading
 
 #Region Objectvari
-	Func _InitObjectVari( $filename = "variables.properties",$delimeter ="=" )
+	Func _InitObjectVari( $filename = "variables.properties",$delimeter = "=" )
 		$arrayline = FileReadToArray($filename)
 		If Not @error Then
 			$ObjectDynamicVari = __createObject()
@@ -745,13 +745,15 @@
 			If $checkobject <= 0 Then
 				$pos 	= StringInStr($text, $delimeter)
 				$textright = StringRight($text, StringLen($text) -$pos)
+				;MsgBox("", "", $vari & $textright)
 				if StringLeft($textright,2) = "()" Then
-					$value 	= $textright
+					$value 	= Execute(StringRight($textright, StringLen($textright) -2))
 				Else
-					$value = Execute(StringRight($textright, StringLen($textright) -2))
+					$value = $textright
 				EndIf
-				
+				;MsgBox("", "", $vari & StringRight($textright, StringLen($textright) -2))
 				$object.__set($vari, $value)
+				;MsgBox("", "", $object.title)
 			Else 		
 				$object.__defineGetter(StringLeft($vari, $checkobject -1), Gui_object)
 				AssignValue(StringTrimLeft($text, $checkobject), Execute("$object." & StringLeft($vari, $checkobject -1)))

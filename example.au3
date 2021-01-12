@@ -13,13 +13,13 @@
 
 _InitLog("example")
 
-$config = __createObject()
-$config.title = "Auto Cóc Ghẻ - tungbach1"
-;$config.title = $CmdLine[2]
-$config.choose = "quytu"
+$config = _InitObjectVari("vari.properties")
+
 ;$config.choose = $CmdLine[1]
 Dim $a = [3, 2]
-;$config.__defineGetter("Msg", "abc")
+$config.__defineGetter("Msg", "abc")
+$config.Msg
 
-$a = 1
-MsgBox("", "", Execute("a"))
+Func abc($this)
+	MsgBox("", $this.parent.title, $this.parent.choose)
+EndFunc
