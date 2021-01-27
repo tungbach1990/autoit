@@ -40,7 +40,7 @@ WEnd
 
 Func MsgCB($reic)
 	MsgBox("", "","message: " & $reic )
-
+	GUICtrlSetData($Label3, 3)
 EndFunc
 
 Func Pro1()

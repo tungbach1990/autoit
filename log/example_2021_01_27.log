@@ -149,3 +149,11 @@
 [2021/01/27 21:10:00][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 8228
 [2021/01/27 21:10:06][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread12688
 [2021/01/27 21:10:06]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 8228 is Exited After 00:00:05 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:13:41]##############             Program is starting with PID 5320             ##############
+[2021/01/27 21:13:41][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:13:41][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:13:42][660][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:13:42][666][Info][Thread]ThreadStart Add thành công vào Array với pid 20160
+[2021/01/27 21:13:42][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 5320
+[2021/01/27 21:13:47][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread20160
+[2021/01/27 21:13:47]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 5320 is Exited After 00:00:05 @@@@@@@@@@@@@@@@@@@@@@@@@@
