@@ -590,11 +590,14 @@
 	EndFunc 
 		
 		
-	Func CBMsgToMain($msg)
+	Func Thread_SendToMain($msg)
 		Return _CoProc_Send($gi_CoProcParent,$msg)		
 	EndFunc
 	
-
+	Func Thread_RegisterFunc($function)
+		_CoProc_Reciver($function)
+	EndFunc
+	
 	Func ThreadResume($oThis)
 		If ProcessExists($oThis.parent.pid) Then
 			_CoProc_Resume($oThis.parent.pid)

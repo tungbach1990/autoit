@@ -1,0 +1,151 @@
+﻿[2021/01/27 20:55:36][Info] file is created C:\Users\Bach\Desktop\bachnt\autoit\log\example_2021_01_27.log
+[2021/01/27 20:55:36]##############             Program is starting with PID 22964             ##############
+[2021/01/27 20:55:36][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:55:36][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:55:37][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:55:37][663][Info][Thread]ThreadStart Add thành công vào Array với pid 9220
+[2021/01/27 20:55:37][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 22964
+[2021/01/27 20:55:37][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread9220
+[2021/01/27 20:55:37]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 22964 is Exited After 00:00:00 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:55:44]##############             Program is starting with PID 22368             ##############
+[2021/01/27 20:55:44][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:55:44][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:55:44][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:55:44][663][Info][Thread]ThreadStart Add thành công vào Array với pid 6636
+[2021/01/27 20:55:44][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 22368
+[2021/01/27 20:55:48][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread6636
+[2021/01/27 20:55:48]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 22368 is Exited After 00:00:04 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:55:52]##############             Program is starting with PID 12068             ##############
+[2021/01/27 20:55:52][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:55:52][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:55:53][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:55:53][663][Info][Thread]ThreadStart Add thành công vào Array với pid 24112
+[2021/01/27 20:55:53][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 12068
+[2021/01/27 20:56:10][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread24112
+[2021/01/27 20:56:10]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 12068 is Exited After 00:00:17 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:56:26]##############             Program is starting with PID 24392             ##############
+[2021/01/27 20:56:26][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:56:26][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:56:27][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:56:27][663][Info][Thread]ThreadStart Add thành công vào Array với pid 21596
+[2021/01/27 20:56:27][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 24392
+[2021/01/27 20:56:47][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread21596
+[2021/01/27 20:56:47]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 24392 is Exited After 00:00:20 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:57:46]##############             Program is starting with PID 13644             ##############
+[2021/01/27 20:57:46][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:57:46][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:57:46][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:57:46][663][Info][Thread]ThreadStart Add thành công vào Array với pid 9608
+[2021/01/27 20:57:52][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread9608
+[2021/01/27 20:57:52]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 13644 is Exited After 00:00:06 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:58:01]##############             Program is starting with PID 3564             ##############
+[2021/01/27 20:58:01][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:58:01][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:58:01][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:58:01][663][Info][Thread]ThreadStart Add thành công vào Array với pid 9928
+[2021/01/27 20:58:03][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread9928
+[2021/01/27 20:58:03]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 3564 is Exited After 00:00:02 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:58:09]##############             Program is starting with PID 5388             ##############
+[2021/01/27 20:58:09][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:58:09][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:58:09][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:58:09][663][Info][Thread]ThreadStart Add thành công vào Array với pid 6136
+[2021/01/27 20:58:09][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 5388
+[2021/01/27 20:58:14][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread6136
+[2021/01/27 20:58:14]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 5388 is Exited After 00:00:05 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 20:59:23]##############             Program is starting with PID 19296             ##############
+[2021/01/27 20:59:23][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 20:59:23][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 20:59:23][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 20:59:23][663][Info][Thread]ThreadStart Add thành công vào Array với pid 18576
+[2021/01/27 20:59:23][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 19296
+[2021/01/27 20:59:29][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread18576
+[2021/01/27 20:59:29]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 19296 is Exited After 00:00:05 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:00:20]##############             Program is starting with PID 18428             ##############
+[2021/01/27 21:00:20][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:00:21][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:00:21][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:00:21][663][Info][Thread]ThreadStart Add thành công vào Array với pid 16460
+[2021/01/27 21:00:21][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 18428
+[2021/01/27 21:00:24][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread16460
+[2021/01/27 21:00:24]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 18428 is Exited After 00:00:03 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:01:10]##############             Program is starting with PID 5552             ##############
+[2021/01/27 21:01:11][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:01:11][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:01:11][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:01:11][663][Info][Thread]ThreadStart Add thành công vào Array với pid 4184
+[2021/01/27 21:01:11][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 5552
+[2021/01/27 21:01:22][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread4184
+[2021/01/27 21:01:22]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 5552 is Exited After 00:00:11 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:01:26]##############             Program is starting with PID 9068             ##############
+[2021/01/27 21:01:26][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:01:27][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:01:27][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:01:27][663][Info][Thread]ThreadStart Add thành công vào Array với pid 8276
+[2021/01/27 21:01:27][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 9068
+[2021/01/27 21:01:34][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread8276
+[2021/01/27 21:01:34]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 9068 is Exited After 00:00:07 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:02:20]##############             Program is starting with PID 12532             ##############
+[2021/01/27 21:02:20][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:02:20][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:02:20][657][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:02:20][663][Info][Thread]ThreadStart Add thành công vào Array với pid 664
+[2021/01/27 21:02:20][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 12532
+[2021/01/27 21:02:28][695][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread664
+[2021/01/27 21:02:28]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 12532 is Exited After 00:00:08 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:04:55]##############             Program is starting with PID 20984             ##############
+[2021/01/27 21:04:55][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:04:55][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:04:55][656][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:04:55][662][Info][Thread]ThreadStart Add thành công vào Array với pid 920
+[2021/01/27 21:04:55][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 20984
+[2021/01/27 21:05:05][694][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread920
+[2021/01/27 21:05:05]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 20984 is Exited After 00:00:10 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:05:13]##############             Program is starting with PID 19944             ##############
+[2021/01/27 21:05:13][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:05:13][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:05:13][656][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:05:13][662][Info][Thread]ThreadStart Add thành công vào Array với pid 22664
+[2021/01/27 21:05:13][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 19944
+[2021/01/27 21:05:17][694][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread22664
+[2021/01/27 21:05:17]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 19944 is Exited After 00:00:04 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:06:32]##############             Program is starting with PID 23632             ##############
+[2021/01/27 21:06:32][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:06:32][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:06:32][660][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:06:32][666][Info][Thread]ThreadStart Add thành công vào Array với pid 23372
+[2021/01/27 21:06:32][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 23632
+[2021/01/27 21:06:39][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread23372
+[2021/01/27 21:06:39]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 23632 is Exited After 00:00:06 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:06:59]##############             Program is starting with PID 8128             ##############
+[2021/01/27 21:06:59][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:06:59][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:07:00][660][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:07:00][666][Info][Thread]ThreadStart Add thành công vào Array với pid 1468
+[2021/01/27 21:07:00][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 8128
+[2021/01/27 21:07:11][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread1468
+[2021/01/27 21:07:11]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 8128 is Exited After 00:00:11 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:08:10]##############             Program is starting with PID 22060             ##############
+[2021/01/27 21:08:10][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:08:10][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:08:10][660][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:08:10][666][Info][Thread]ThreadStart Add thành công vào Array với pid 17092
+[2021/01/27 21:08:10][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 22060
+[2021/01/27 21:08:19][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread17092
+[2021/01/27 21:08:19]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 22060 is Exited After 00:00:09 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:09:45]##############             Program is starting with PID 20360             ##############
+[2021/01/27 21:09:45][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:09:45][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:09:45][660][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:09:45][666][Info][Thread]ThreadStart Add thành công vào Array với pid 11664
+[2021/01/27 21:09:45][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 20360
+[2021/01/27 21:09:50][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread11664
+[2021/01/27 21:09:50]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 20360 is Exited After 00:00:05 @@@@@@@@@@@@@@@@@@@@@@@@@@
+[2021/01/27 21:10:00]##############             Program is starting with PID 8228             ##############
+[2021/01/27 21:10:00][Info][ObjectV] Đã load thành công ObjectVariable từ file vari.properties
+[2021/01/27 21:10:00][Info][Thread]ThreadObject tạo thành công
+[2021/01/27 21:10:00][660][Info][Thread]ThreadStart thành công Register Exit Function
+[2021/01/27 21:10:00][666][Info][Thread]ThreadStart Add thành công vào Array với pid 12688
+[2021/01/27 21:10:00][586][Info][Thread]SetCallBack setCallBack MsgCB cho pid 8228
+[2021/01/27 21:10:06][698][Info][Thread]ThreadKillSelfIfNotHaveParent Main bị closed nên đóng theo thread12688
+[2021/01/27 21:10:06]@@@@@@@@@@@@@@@@@@@@@@@@@@ PID 8228 is Exited After 00:00:05 @@@@@@@@@@@@@@@@@@@@@@@@@@
