@@ -343,6 +343,7 @@
 		If ProcessExists($pid) Then
 			$MemoryObject =  __createObject()
 			$MemoryObject.pid = $pid
+			$MemoryObject.Base = 0
 			$MemoryObject.MemID = 0
 			$MemoryObject.Address = 0
 			$MemoryObject.InheritHandle = 1
@@ -351,8 +352,12 @@
 			$MemoryObject.Type = 'dword' ;byte, float, dword, char[], wchar[] https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types
 			$MemoryObject.__defineGetter("Open", __MemoryOpen); _MemoryOpen($oThis.parent.pid, $oThis.parent.iv_DesiredAcces, $oThis.parent.iv_InheritHandle)
 			$MemoryObject.__defineGetter("Read", __MemoryRead)
+			$MemoryObject.__defineGetter("MultiRead", __MemoryMultiRead)
+			$MemoryObject.__defineGetter("MultiWrite", __MemoryMultiWrite)
 			$MemoryObject.__defineGetter("Write", __MemoryWrite)
 			$MemoryObject.__defineGetter("Close", __MemoryClose)
+			$MemoryObject.__defineGetter("GetBase", __MemoryBase)
+			
 			;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryCreate & $Lang_log.Log.Text.Space & $pid & $Lang_log.Log.Text.Success,   @ScriptLineNumber)
 			Logging($log_prefix_InfoMemory & "MemoryObject đã tạo thành công", @ScriptLineNumber)
 			Return $MemoryObject
@@ -364,6 +369,10 @@
 	EndFunc
 	
 	
+	Func __MemoryBase($oThis)
+		$oThis.parent.Base = _MemoryModuleGetBaseAddress($oThis.parent.pid, $oThis.arguments.values[0])
+		Return $oThis.parent
+	EndFunc
 	Func __MemoryOpen($oThis)
 ;~		If ProcessExists($oThis.parent.pid) Then
 			$temp = _MemoryOpen($oThis.parent.pid);, $oThis.parent.DesiredAcces, $oThis.parent.InheritHandle)
@@ -426,6 +435,107 @@
 					Logging($log_prefix_ErrMemory & "MemoryRead không thành công " & $oThis.arguments.length, @ScriptLineNumber)
 					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Not & $Lang_log.Log.Text.Success & $Lang_log.Log.Text.Space & @error,   @ScriptLineNumber)
 					Return SetError(2, 1, 0)
+				EndIf
+			Case Else 
+				Logging($log_prefix_ErrMemory & "MemoryRead không thành công [Agruments không đúng số lượng] " & $oThis.arguments.length, @ScriptLineNumber)
+				Return SetError(1, 1, 0)
+
+		EndSwitch
+		Return $oThis.parent
+	EndFunc
+	
+	
+	Func __MemoryMultiRead($oThis)
+		Switch $oThis.arguments.length				
+			Case 1
+				$SplitPath = StringSplit($oThis.arguments.values[0], ",")
+				$temp = _MemoryRead("0x" & Hex($oThis.parent.Base + Int($SplitPath[1]), 8), $oThis.parent.MemID, "dword")
+				;_ArrayDisplay($SplitPath)
+				For $i = 2 to $SplitPath[0] - 1
+					$temp = _MemoryRead("0x" & Hex(Int($SplitPath[$i]) + $temp) , $oThis.parent.MemID, "dword")
+					
+				Next
+				;$oThis.parent.Type = 'dword'
+				$temp = _MemoryRead("0x" & Hex(Int($SplitPath[$SplitPath[0]]) + $temp) , $oThis.parent.MemID,$oThis.parent.Type)
+				;MsgBox("", "", $temp)
+				If Not @error Then
+					$oThis.parent.RtRead = $temp
+					Logging($log_prefix_InfoMemory & "MemoryRead thành công " & $oThis.arguments.length	, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Success,   @ScriptLineNumber)
+				Else 
+					Logging($log_prefix_ErrMemory & "MemoryRead không thành công " & $oThis.arguments.length, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Not & $Lang_log.Log.Text.Success & $Lang_log.Log.Text.Space & @error,   @ScriptLineNumber)
+					Return SetError(3, 1, 0)
+				EndIf				
+			Case 2
+				$SplitPath = StringSplit($oThis.arguments.values[0], ",")
+				$temp = _MemoryRead("0x" & Hex($oThis.parent.Base + Int($SplitPath[1]), 8), $oThis.parent.MemID, "dword")
+				;_ArrayDisplay($SplitPath)
+				For $i = 2 to $SplitPath[0] - 1
+					$temp = _MemoryRead("0x" & Hex(Int($SplitPath[$i]) + $temp) , $oThis.parent.MemID, "dword")
+					
+				Next
+				;$oThis.parent.Type = 'dword'
+				$temp = _MemoryRead("0x" & Hex(Int($SplitPath[$SplitPath[0]]) + $temp) , $oThis.parent.MemID,  $oThis.arguments.values[1])
+				;MsgBox("", "", $temp)
+				If Not @error Then
+					$oThis.parent.RtRead = $temp
+					Logging($log_prefix_InfoMemory & "MemoryRead thành công " & $oThis.arguments.length	, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Success,   @ScriptLineNumber)
+				Else 
+					Logging($log_prefix_ErrMemory & "MemoryRead không thành công " & $oThis.arguments.length, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Not & $Lang_log.Log.Text.Success & $Lang_log.Log.Text.Space & @error,   @ScriptLineNumber)
+					Return SetError(3, 1, 0)
+				EndIf
+			Case Else 
+				Logging($log_prefix_ErrMemory & "MemoryRead không thành công [Agruments không đúng số lượng] " & $oThis.arguments.length, @ScriptLineNumber)
+				Return SetError(1, 1, 0)
+
+		EndSwitch
+		Return $oThis.parent
+	EndFunc
+	
+	Func __MemoryMultiWrite($oThis)
+		Switch $oThis.arguments.length				
+			Case 2
+				$SplitPath = StringSplit($oThis.arguments.values[0], ",")
+				$temp = _MemoryRead("0x" & Hex($oThis.parent.Base + Int($SplitPath[1]), 8), $oThis.parent.MemID, "dword")
+				;_ArrayDisplay($SplitPath)
+				For $i = 2 to $SplitPath[0] - 1
+					$temp = _MemoryRead("0x" & Hex(Int($SplitPath[$i]) + $temp) , $oThis.parent.MemID, "dword")
+					
+				Next
+				;$oThis.parent.Type = 'dword'
+				$temp = _MemoryWrite("0x" & Hex(Int($SplitPath[$SplitPath[0]]) + $temp) , $oThis.parent.MemID, $oThis.arguments.values[1], $oThis.parent.Type)
+				;MsgBox("", "", $temp)
+				If Not @error Then
+					$oThis.parent.RtRead = $temp
+					Logging($log_prefix_InfoMemory & "MemoryRead thành công " & $oThis.arguments.length	, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Success,   @ScriptLineNumber)
+				Else 
+					Logging($log_prefix_ErrMemory & "MemoryRead không thành công " & $oThis.arguments.length, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Not & $Lang_log.Log.Text.Success & $Lang_log.Log.Text.Space & @error,   @ScriptLineNumber)
+					Return SetError(3, 1, 0)
+				EndIf				
+			Case 3
+				$SplitPath = StringSplit($oThis.arguments.values[0], ",")
+				$temp = _MemoryRead("0x" & Hex($oThis.parent.Base + Int($SplitPath[1]), 8), $oThis.parent.MemID, "dword")
+				;_ArrayDisplay($SplitPath)
+				For $i = 2 to $SplitPath[0] - 1
+					$temp = _MemoryRead("0x" & Hex(Int($SplitPath[$i]) + $temp) , $oThis.parent.MemID, "dword")
+					
+				Next
+				;$oThis.parent.Type = 'dword'
+				$temp = _MemoryWrite("0x" & Hex(Int($SplitPath[$SplitPath[0]]) + $temp) , $oThis.parent.MemID, $oThis.arguments.values[1],  $oThis.arguments.values[2])
+				;MsgBox("", "", $temp)
+				If Not @error Then
+					$oThis.parent.RtRead = $temp
+					Logging($log_prefix_InfoMemory & "MemoryRead thành công " & $oThis.arguments.length	, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Success,   @ScriptLineNumber)
+				Else 
+					Logging($log_prefix_ErrMemory & "MemoryRead không thành công " & $oThis.arguments.length, @ScriptLineNumber)
+					;Logging($Lang_log.Log.Text.Prefix.Info.Memory & $Lang_log.Log.Text.MemoryRead & $Lang_log.Log.Text.Space & $oThis.parent.Address & $Lang_log.Log.Text.Not & $Lang_log.Log.Text.Success & $Lang_log.Log.Text.Space & @error,   @ScriptLineNumber)
+					Return SetError(3, 1, 0)
 				EndIf
 			Case Else 
 				Logging($log_prefix_ErrMemory & "MemoryRead không thành công [Agruments không đúng số lượng] " & $oThis.arguments.length, @ScriptLineNumber)
@@ -3132,6 +3242,45 @@
 		EndIf
 		
 	EndFunc
+	
+	
+Func _MemoryModuleGetBaseAddress($iPID, $sModule)
+    If Not ProcessExists($iPID) Then Return SetError(1, 0, 0)
+    
+    If Not IsString($sModule) Then Return SetError(2, 0, 0)
+    
+    Local   $PSAPI = DllOpen("psapi.dll")
+    
+    ;Get Process Handle
+    Local   $hProcess
+    Local   $PERMISSION = BitOR(0x0002, 0x0400, 0x0008, 0x0010, 0x0020) ; CREATE_THREAD, QUERY_INFORMATION, VM_OPERATION, VM_READ, VM_WRITE
+    
+    If $iPID > 0 Then
+        Local $hProcess = DllCall("kernel32.dll", "ptr", "OpenProcess", "dword", $PERMISSION, "int", 0, "dword", $iPID)
+        If $hProcess[0] Then
+            $hProcess = $hProcess[0]
+        EndIf
+    EndIf
+    
+    ;EnumProcessModules
+    Local   $Modules = DllStructCreate("ptr[1024]")
+    Local   $aCall = DllCall($PSAPI, "int", "EnumProcessModules", "ptr", $hProcess, "ptr", DllStructGetPtr($Modules), "dword", DllStructGetSize($Modules), "dword*", 0)
+    If $aCall[4] > 0 Then
+        Local   $iModnum = $aCall[4] / 4
+        Local   $aTemp
+        For $i = 1 To $iModnum
+            $aTemp =  DllCall($PSAPI, "dword", "GetModuleBaseNameW", "ptr", $hProcess, "ptr", Ptr(DllStructGetData($Modules, 1, $i)), "wstr", "", "dword", 260)
+            If $aTemp[3] = $sModule Then
+                DllClose($PSAPI)
+                Return Ptr(DllStructGetData($Modules, 1, $i))
+            EndIf
+        Next
+    EndIf
+    
+    DllClose($PSAPI)
+    Return SetError(-1, 0, 0)
+    
+EndFunc
 
 	;==================================================================================
 	; Function:			SetPrivilege( $privilege, $bEnable )
